@@ -1,0 +1,9 @@
+use JS to validate "contact me" form
+
+name
+email
+message
+
+
+VALIDATE
+USE BOOTSTRAP
