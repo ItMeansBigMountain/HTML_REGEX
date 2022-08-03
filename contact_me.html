@@ -51,39 +51,38 @@
 
         <div class="mx-auto">
 
-            <form>
+            <form onsubmit="ValidateEmail()">
                 <h5 class="card-title">Contact Me!</h5>
 
                 <div class="form-group">
                     <label for="email_Input">Email address</label>
-                    <input type="email" class="form-control" id="email_Input" placeholder="Please Enter email"
+                    <input type="text" class="form-control" id="email_Input" placeholder="Please Enter email"
                         name="email_Input">
                 </div>
 
 
                 <div class="form-group">
                     <label for="name_input">Name</label>
-                    <input type="text" class="form-control" id="name_input" placeholder="Full Name" name="full_name">
+                    <input type="text" class="form-control" id="name_input" placeholder="Full Name" name="name_input">
                 </div>
 
                 <div class="form-group">
                     <label for="message_input">Message</label>
                     <input type="text" class="form-control" id="message_input" placeholder="Write your message here!!"
-                        name="user_message">
+                        name="message_input">
                 </div>
 
+
+
+
                 <button type="submit" class="btn btn-primary">Submit</button>
+
+
+
             </form>
-
-
 
         </div>
     </div>
-
-
-
-
-
 
 
 
@@ -94,13 +93,18 @@
     <script>
         // const document is the dom object
         // methods in the dom (document) maniupulate elements within the client side html
-        const Email_Input = document.querySelector("input[name='email_Input']").value;
-        const Name_Input = document.querySelector("input[name='full_name']").value;
-        const Message_Input = document.querySelector("input[name='user_message']").value;
+        const Name_Input = document.getElementById("name_input").value;
+        const Message_Input = document.getElementById("message_input").value;
 
-        console.log(Email_Input)
-        console.log(Name_Input)
-        console.log(Message_Input)
+
+        function ValidateEmail() {
+            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
+                document.getElementById("email_Input").value)
+            ) { return (true) }
+
+            alert("You have entered an invalid email address!")
+            return (false)
+        }
 
 
     </script>
